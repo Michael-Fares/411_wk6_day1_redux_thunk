@@ -8,12 +8,14 @@ const Import = (props) => {
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    console.log(event.currentTarget)
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
  
   // local state for makes array
+  console.log(props.makes)
 
     return (
         <Container style={{paddingTop: "40px", marginLeft: "200px"}}>
@@ -34,7 +36,7 @@ const Import = (props) => {
                             <TableCell> {make.MakeId}</TableCell>
                             <TableCell>{make.MakeName}</TableCell>
                             <TableCell>
-                                <MoreVert onClick={handleClick} />
+                                <MoreVert index={index} onClick={handleClick} />
                             </TableCell>
                         </TableRow>
                     )
@@ -48,8 +50,11 @@ const Import = (props) => {
                                     'aria-labelledby': 'basic-button',
                                     }}
                                 >
-                <MenuItem onClick={(e) => {
-                    console.log(e.currentTarget.parentNode)
+                <MenuItem onClick={() => {
+                    // used the getAttribute method to get the current index clicked from the anchorEl, which is an svg tag in this case
+                    let index = anchorEl.getAttribute('index')
+                    console.log('delete index', index)
+                    props.deleteMake(index)
                     }}>
                     Delete
                 </MenuItem>
