@@ -15,6 +15,7 @@ const Navigation = () => {
                     FakeCars.com
                 </Typography>
                 <ul className="nav-list">
+                
                     <li className="nav-list-item">
                         <Link to="/">Home</Link>
                     </li>
@@ -23,6 +24,9 @@ const Navigation = () => {
                     </li>
                     <li className="nav-list-item">
                         <Link to="/dashboard">Dasboard</Link>
+                    </li>
+                    <li className="nav-list-item">
+                        <Link to="/import">Import</Link>
                     </li>
                 </ul>
             </Toolbar>

@@ -4,8 +4,7 @@ import { Button, Table, TableHead, TableBody, TableRow, TableCell, Container, Me
 import { MoreVert } from '@material-ui/icons'
 
 const Import = (props) => {
-    // fill out this component
-    const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -13,24 +12,25 @@ const Import = (props) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+ 
+  // local state for makes array
 
     return (
-        <Container>
+        <Container style={{paddingTop: "40px", marginLeft: "200px"}}>
             <Button variant="contained" color="primary"
-            onClick={props.fetchMakes}>Import</Button>
+            onClick={()=> props.fetchMakes()}>Import</Button>
             <h2>{`Count: ${props.makes.length}`}</h2>
             <TableBody>
                 <TableRow>
                 
-                        <TableCell>Make Id</TableCell>
+                        <TableCell>Id</TableCell>
                         <TableCell>Make</TableCell>
                         <TableCell>Actions</TableCell>
               
                 </TableRow>
                 {props.makes.map((make, index) => {
                     return (
-                        <TableRow key={make.MakeId}>
+                        <TableRow index={index} key={make.MakeId}>
                             <TableCell> {make.MakeId}</TableCell>
                             <TableCell>{make.MakeName}</TableCell>
                             <TableCell>
@@ -48,9 +48,8 @@ const Import = (props) => {
                                     'aria-labelledby': 'basic-button',
                                     }}
                                 >
-                <MenuItem onClick={() => {
-                    let index = 3
-                    props.deleteMake(props.makes[index])
+                <MenuItem onClick={(e) => {
+                    console.log(e.currentTarget.parentNode)
                     }}>
                     Delete
                 </MenuItem>
