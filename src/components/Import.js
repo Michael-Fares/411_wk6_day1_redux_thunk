@@ -24,11 +24,9 @@ const Import = (props) => {
             <h2>{`Count: ${props.makes.length}`}</h2>
             <TableBody>
                 <TableRow>
-                
                         <TableCell>Id</TableCell>
                         <TableCell>Make</TableCell>
                         <TableCell>Actions</TableCell>
-              
                 </TableRow>
                 {props.makes.map((make, index) => {
                     return (
